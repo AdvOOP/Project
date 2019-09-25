@@ -8,7 +8,10 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.SwingConstants;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -45,9 +48,9 @@ public class Command {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frmB = new JFrame();
-		frmB.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\AN\\download3.jpg"));
+	private void initialize() {			
+		frmB = new JFrame();		
+		frmB.setIconImage(Toolkit.getDefaultToolkit().getImage(".\\img\\download3.jpg"));
 		frmB.setTitle("ProjectAdvOOP");
 		frmB.setBounds(100, 100, 408, 329);
 		frmB.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,17 +80,20 @@ public class Command {
 		frmB.getContentPane().add(button_2);
 		
 		JLabel label_1 = new JLabel("");
-		label_1.setIcon(new ImageIcon("C:\\AN\\images.png"));
+		Image img = new ImageIcon(this.getClass().getResource("/images.png")).getImage();
+		label_1.setIcon(new ImageIcon(img));
 		label_1.setBounds(28, 149, 50, 50);
 		frmB.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon("C:\\AN\\download.png"));
+		Image img3 = new ImageIcon(this.getClass().getResource("/download.png")).getImage();
+		label_2.setIcon(new ImageIcon(img3));
 		label_2.setBounds(28, 76, 50, 50);
 		frmB.getContentPane().add(label_2);
 		
 		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon("C:\\AN\\download (1).png"));
+		Image img2 = new ImageIcon(this.getClass().getResource("/download (1).png")).getImage();		
+		label_3.setIcon(new ImageIcon(img2));
 		label_3.setBounds(28, 219, 50, 50);
 		frmB.getContentPane().add(label_3);
 	}
