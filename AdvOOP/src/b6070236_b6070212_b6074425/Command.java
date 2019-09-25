@@ -19,9 +19,6 @@ import java.awt.Window.Type;
 import java.awt.Toolkit;
 
 public class Command {
-/// LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL>
-	//KOOOOOOOOOOOOOOOOOOO
-	>>>>>>>>>
 	private JFrame frmB;
 
 	/**
