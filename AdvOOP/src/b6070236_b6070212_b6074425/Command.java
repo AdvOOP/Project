@@ -3,23 +3,21 @@ package b6070236_b6070212_b6074425;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 
-import javax.swing.SwingConstants;
-import javax.imageio.ImageIO;
+
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.Window.Type;
 import java.awt.Toolkit;
 
 public class Command {
-	private JFrame frmB;
+	private JFrame frmB; 
+
 	/**
 	 * Launch the application.
 	 */
@@ -35,7 +33,7 @@ public class Command {
 			}
 		});
 	}
-	// adadsadasdasdasd
+
 	/**
 	 * Create the application.
 	 */
@@ -68,6 +66,9 @@ public class Command {
 		JButton button_1 = new JButton("\u0E42\u0E1B\u0E23\u0E41\u0E01\u0E23\u0E21\u0E04\u0E33\u0E19\u0E27\u0E19\u0E14\u0E2D\u0E01\u0E40\u0E1A\u0E35\u0E49\u0E22\u0E21\u0E2D\u0E40\u0E15\u0E2D\u0E23\u0E4C\u0E44\u0E0B\u0E14\u0E4C");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frmB.dispose();
+				cal2 frame = new cal2();
+			    frame.setVisible(true);
 			}
 		});
 		button_1.setBounds(97, 86, 263, 34);

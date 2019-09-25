@@ -60,6 +60,7 @@ public class Kinematics extends JFrame {
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.addItem("kk");
 		comboBox_1.setBounds(417, 120, 278, 35);
 		contentPane.add(comboBox_1);
 		
