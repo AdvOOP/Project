@@ -19,7 +19,7 @@ public class Command {
 	private JFrame frmB; 
 
 	/**
-	 * Launch the application.
+	 * Launch the application.555555555555555555555555555555555555555555555555555555555555555
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
