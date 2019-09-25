@@ -75,6 +75,13 @@ public class Command {
 		frmB.getContentPane().add(button_1);
 		
 		JButton button_2 = new JButton("\u0E42\u0E1B\u0E23\u0E41\u0E01\u0E23\u0E21\u0E1F\u0E34\u0E2A\u0E34\u0E01\u0E2A\u0E4C");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmB.dispose();
+				Kinematics frame = new Kinematics();
+			    frame.setVisible(true);
+			}
+		});
 		button_2.setBounds(97, 235, 127, 34);
 		frmB.getContentPane().add(button_2);
 		
