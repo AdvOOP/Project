@@ -60,13 +60,20 @@ public class Command {
 		frmB.getContentPane().add(label);
 		
 		JButton button = new JButton("\u0E42\u0E1B\u0E23\u0E41\u0E01\u0E23\u0E21\u0E41\u0E1B\u0E25\u0E07\u0E04\u0E48\u0E32\u0E40\u0E07\u0E34\u0E19\u0E14\u0E34\u0E08\u0E34\u0E17\u0E2D\u0E25");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//frmB.dispose();
+				Exchange frame = new Exchange();
+			    frame.setVisible(true);
+			}
+		});
 		button.setBounds(97, 162, 207, 34);
 		frmB.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("\u0E42\u0E1B\u0E23\u0E41\u0E01\u0E23\u0E21\u0E04\u0E33\u0E19\u0E27\u0E19\u0E14\u0E2D\u0E01\u0E40\u0E1A\u0E35\u0E49\u0E22\u0E21\u0E2D\u0E40\u0E15\u0E2D\u0E23\u0E4C\u0E44\u0E0B\u0E14\u0E4C");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frmB.dispose();
+				//frmB.dispose();
 				cal2 frame = new cal2();
 			    frame.setVisible(true);
 			}
@@ -77,7 +84,7 @@ public class Command {
 		JButton button_2 = new JButton("\u0E42\u0E1B\u0E23\u0E41\u0E01\u0E23\u0E21\u0E1F\u0E34\u0E2A\u0E34\u0E01\u0E2A\u0E4C");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frmB.dispose();
+				//frmB.dispose();
 				Kinematics frame = new Kinematics();
 			    frame.setVisible(true);
 			}
