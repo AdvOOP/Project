@@ -19,7 +19,7 @@ import java.awt.Window.Type;
 import java.awt.Toolkit;
 
 public class Command {
-	private JFrame frmB;
+	private JFrame frmB; // ssssss
 	/**
 	 * Launch the application.
 	 */
