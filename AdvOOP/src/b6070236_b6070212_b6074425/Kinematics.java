@@ -1,5 +1,6 @@
 package b6070236_b6070212_b6074425;
 
+import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -10,7 +11,9 @@ import javax.swing.JList;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -23,11 +26,19 @@ public class Kinematics extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JComboBox comboBox_1;
+	
+	Statement st;
+	Connection con = null;
+	ResultSet rs;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		Kinematics DB_Kinematics = new Kinematics();
+		Connection con = null;
+		con =DB_Kinematics.connectdatabase();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,7 +50,40 @@ public class Kinematics extends JFrame {
 			}
 		});
 	}
-
+	
+//	public Connection connectdatabase(){
+//		try{
+//			 Class.forName("com.mysql.jdbc.Driver");
+//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+//			 st = con.createStatement();
+//			 st.close();
+//		}
+//			catch(SQLException e){
+//				System.out.println(e);
+//		}
+//			catch(Exception ex) {
+//				System.out.println(ex);
+//		}
+//		return con;
+//	}
+	
+	public void fileCombobox(){
+//		Kinematics DB_Kinematics = new Kinematics();
+//		con =DB_Kinematics.connectdatabase();
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+			String query = "select * from physics";
+			 st = con.createStatement();
+			rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				comboBox_1.addItem(rs.getString("formula"));
+			}
+		}catch(Exception e2){
+			e2.printStackTrace();
+		}
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -59,10 +103,10 @@ public class Kinematics extends JFrame {
 		comboBox.setBounds(165, 120, 141, 35);
 		contentPane.add(comboBox);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.addItem("kk");
+		comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(417, 120, 278, 35);
 		contentPane.add(comboBox_1);
+		fileCombobox();
 		
 		JLabel lblb = new JLabel("\u0E01\u0E32\u0E23\u0E04\u0E33\u0E19\u0E27\u0E13\u0E17\u0E32\u0E07\u0E1F\u0E34\u0E2A\u0E34\u0E01\u0E2A\u0E4C");
 		lblb.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -146,5 +190,6 @@ public class Kinematics extends JFrame {
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		label_1.setBounds(108, 507, 89, 26);
 		contentPane.add(label_1);
+		
 	}
 }
