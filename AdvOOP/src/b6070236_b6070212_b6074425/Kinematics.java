@@ -36,9 +36,9 @@ public class Kinematics extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		Kinematics DB_Kinematics = new Kinematics();
-		Connection con = null;
-		con =DB_Kinematics.connectdatabase();
+//		Kinematics DB_Kinematics = new Kinematics();
+//		Connection con = null;
+//		con =DB_Kinematics.connectdatabase();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -97,6 +97,7 @@ public class Kinematics extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox.addItem("");
 		comboBox.addItem("Kinamatics");
 		comboBox.addItem("Movement");
 		comboBox.addItem("Kinamatics");
@@ -106,11 +107,65 @@ public class Kinematics extends JFrame {
 		comboBox_1 = new JComboBox();
 		comboBox_1.setBounds(417, 120, 278, 35);
 		contentPane.add(comboBox_1);
-		fileCombobox();
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.addItem("");
+		comboBox_2.addItem("V");
+		comboBox_2.addItem("S");
+		comboBox_2.addItem("T");
+		comboBox_2.addItem("U");
+		comboBox_2.addItem("A");
+		comboBox_2.addItem("G");
+		comboBox_2.setBounds(108, 198, 141, 33);
+		contentPane.add(comboBox_2);
+		
+		JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.addItem("");
+		comboBox_3.addItem("V");
+		comboBox_3.addItem("S");
+		comboBox_3.addItem("T");
+		comboBox_3.addItem("U");
+		comboBox_3.addItem("A");
+		comboBox_3.addItem("G");
+		comboBox_3.setBounds(108, 258, 141, 33);
+		contentPane.add(comboBox_3);
+		
+		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.addItem("");
+		comboBox_4.addItem("V");
+		comboBox_4.addItem("S");
+		comboBox_4.addItem("T");
+		comboBox_4.addItem("U");
+		comboBox_4.addItem("A");
+		comboBox_4.addItem("G");
+		comboBox_4.setBounds(108, 317, 141, 33);
+		contentPane.add(comboBox_4);
+		
+		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.addItem("");
+		comboBox_5.addItem("V");
+		comboBox_5.addItem("S");
+		comboBox_5.addItem("T");
+		comboBox_5.addItem("U");
+		comboBox_5.addItem("A");
+		comboBox_5.addItem("G");
+		comboBox_5.setBounds(108, 376, 141, 33);
+		contentPane.add(comboBox_5);
+		
+		JComboBox comboBox_6 = new JComboBox();
+		comboBox_6.addItem("");
+		comboBox_6.addItem("V");
+		comboBox_6.addItem("S");
+		comboBox_6.addItem("T");
+		comboBox_6.addItem("U");
+		comboBox_6.addItem("A");
+		comboBox_6.addItem("G");
+		comboBox_6.setBounds(108, 438, 141, 33);
+		contentPane.add(comboBox_6);
 		
 		JLabel lblb = new JLabel("\u0E01\u0E32\u0E23\u0E04\u0E33\u0E19\u0E27\u0E13\u0E17\u0E32\u0E07\u0E1F\u0E34\u0E2A\u0E34\u0E01\u0E2A\u0E4C");
 		lblb.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblb.setBounds(302, 45, 210, 29);
+		lblb.setBounds(318, 45, 210, 29);
 		contentPane.add(lblb);
 		
 		JLabel label = new JLabel("\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E2B\u0E32");
@@ -148,6 +203,18 @@ public class Kinematics extends JFrame {
 		textField_4.setBounds(275, 431, 237, 35);
 		contentPane.add(textField_4);
 		
+
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(275, 499, 237, 46);
+		contentPane.add(textField_5);
+		
+		JLabel label_1 = new JLabel("\u0E1C\u0E25\u0E25\u0E31\u0E1E\u0E18\u0E4C");
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		label_1.setBounds(108, 507, 89, 26);
+		contentPane.add(label_1);
+		
 		JButton btnNewButton = new JButton("\u0E04\u0E33\u0E19\u0E27\u0E13");
 		btnNewButton.setBounds(560, 196, 111, 29);
 		contentPane.add(btnNewButton);
@@ -156,40 +223,6 @@ public class Kinematics extends JFrame {
 		btnNewButton_1.setBounds(560, 255, 111, 29);
 		contentPane.add(btnNewButton_1);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(275, 499, 237, 46);
-		contentPane.add(textField_5);
-		
-		JLabel lblNewLabel_1 = new JLabel("\u0E04\u0E27\u0E32\u0E21\u0E40\u0E23\u0E47\u0E27\u0E1B\u0E25\u0E32\u0E22(V)");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(108, 265, 126, 26);
-		contentPane.add(lblNewLabel_1);
-		
-		JLabel lblU = new JLabel("\u0E04\u0E27\u0E32\u0E21\u0E40\u0E23\u0E47\u0E27\u0E15\u0E49\u0E19(U)");
-		lblU.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblU.setBounds(108, 206, 126, 26);
-		contentPane.add(lblU);
-		
-		JLabel lblA = new JLabel("\u0E2D\u0E31\u0E15\u0E23\u0E32\u0E40\u0E23\u0E48\u0E07(A) \u0E2B\u0E23\u0E37\u0E2D");
-		lblA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblA.setBounds(108, 324, 89, 26);
-		contentPane.add(lblA);
-		
-		JLabel lblT = new JLabel("\u0E40\u0E27\u0E25\u0E32(T)");
-		lblT.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblT.setBounds(108, 389, 89, 26);
-		contentPane.add(lblT);
-		
-		JLabel lblS = new JLabel("\u0E23\u0E30\u0E22\u0E30\u0E17\u0E32\u0E07(S)");
-		lblS.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblS.setBounds(108, 440, 89, 26);
-		contentPane.add(lblS);
-		
-		JLabel label_1 = new JLabel("\u0E1C\u0E25\u0E25\u0E31\u0E1E\u0E18\u0E4C");
-		label_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_1.setBounds(108, 507, 89, 26);
-		contentPane.add(label_1);
-		
+		fileCombobox();
 	}
 }
