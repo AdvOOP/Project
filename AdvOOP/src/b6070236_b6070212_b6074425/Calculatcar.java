@@ -1,4 +1,5 @@
 package b6070236_b6070212_b6074425;
+import java.sql.*;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -23,11 +24,11 @@ import java.sql.Statement;
 import javax.swing.DefaultComboBoxModel;
 
 
-public class cmd1 extends JFrame {
-
+public class  Calculatcar extends JFrame {
 	private JPanel contentPane;
 	protected double month,price,pay,interest;
 	private JComboBox comboBox;
+	
 	Statement st;
 	Connection con = null;
 	ResultSet rs;
@@ -40,7 +41,7 @@ public class cmd1 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					cmd1 frame = new cmd1();
+					Calculatcar frame = new Calculatcar();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,13 +51,11 @@ public class cmd1 extends JFrame {
 	}
 	
 	public void fileCombobox(){
-//		Kinematics DB_Kinematics = new Kinematics();
-//		con =DB_Kinematics.connectdatabase();
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
-			String query = "select * from data_motorcycle";
-			 st = con.createStatement();
+			String query = "select * from datamotorcycle";
+			st = con.createStatement();
 			rs = st.executeQuery(query);
 			while(rs.next())
 			{
@@ -70,7 +69,7 @@ public class cmd1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public cmd1() {
+	public Calculatcar() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 546, 604);
 		contentPane = new JPanel();
@@ -85,6 +84,15 @@ public class cmd1 extends JFrame {
 		
 		JLabel label_1 = new JLabel("\u0E22\u0E35\u0E48\u0E2B\u0E49\u0E2D :");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		try{
+		Class.forName("com.mysql.jdbc.Driver");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+		String query = "select * from datamotorcycle";
+		st = con.createStatement();
+		rs = st.executeQuery(query);
+		}catch(Exception e2){
+			
+		}
 		label_1.setBounds(12, 84, 56, 22);
 		contentPane.add(label_1);
 		
