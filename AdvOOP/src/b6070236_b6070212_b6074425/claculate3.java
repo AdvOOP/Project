@@ -9,7 +9,7 @@ public class claculate3{
 		this.pay = pay;
 		this.price = price;
 		this.interest = interest;
-		}
+	}
 	
 	public void calStar(double pay,double price){
 		finance = price - pay ;

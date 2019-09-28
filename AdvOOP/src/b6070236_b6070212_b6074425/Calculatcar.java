@@ -52,37 +52,39 @@ public class  Calculatcar extends JFrame {
 	});
 	}
 	
-//	public void fileCombobox(){
-//		try{
-//			Class.forName("com.mysql.jdbc.Driver");
-//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
-//			String query = "select * from datamotorcycle";
-//			st = con.createStatement();
-//			rs = st.executeQuery(query);
-//			while(rs.next())
-//			{
-//				comboBox.addItem(rs.getString("Brand"));
-//			}
-//		}catch(Exception e2){
-//			e2.printStackTrace();
-//		}
-//	}
+	public void fileCombobox(){
+//		Kinematics DB_Kinematics = new Kinematics();
+//		con =DB_Kinematics.connectdatabase();
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+			String query = "select * from datamotorcycle";
+			 st = con.createStatement();
+			rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				comboBox.addItem(rs.getString("Brand"));
+			}
+		}catch(Exception e2){
+			e2.printStackTrace();
+		}
+	}
 	
-//	public void fileCombobox2(){
-//		try{
-//			Class.forName("com.mysql.jdbc.Driver");
-//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
-//			String query = "select * from datamotorcycle";
-//			st = con.createStatement();
-//			rs = st.executeQuery(query);
-//			while(rs.next())
-//			{
-//				comboBox_1.addItem(rs.getString("Model"));
-//			}
-//		}catch(Exception e2){
-//			e2.printStackTrace();
-//		}
-//	}
+	public void fileCombobox2(){
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+			String query = "select * from datamotorcycle";
+			st = con.createStatement();
+			rs = st.executeQuery(query);
+			while(rs.next())
+			{
+				comboBox_1.addItem(rs.getString("Model"));
+			}
+		}catch(Exception e2){
+			e2.printStackTrace();
+		}
+	}
 
 	/**
 	 * Create the frame.
@@ -139,13 +141,12 @@ public class  Calculatcar extends JFrame {
 		label_6.setBounds(12, 337, 96, 22);
 		contentPane.add(label_6);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 //		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Honda", "Yamaha", "Suzuki", "Ducati", "BMW"}));
 		comboBox.setBounds(80, 82, 167, 30);
 		contentPane.add(comboBox);
-//		fileCombobox();
 		
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 //		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"CBR1000RR", "R1M", "GSX-R1000", "Panigale1199", "S1000RR"}));
 		comboBox_1.setBounds(80, 134, 167, 30);
 		contentPane.add(comboBox_1);
@@ -215,7 +216,8 @@ public class  Calculatcar extends JFrame {
 		});
 		button.setBounds(12, 404, 97, 25);
 		contentPane.add(button);
-//		fileCombobox2();
+		fileCombobox2();
+		fileCombobox();
 
 	}
 }

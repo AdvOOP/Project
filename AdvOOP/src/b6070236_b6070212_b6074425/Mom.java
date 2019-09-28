@@ -9,10 +9,4 @@ public class Mom {
 		this.price = price;
 		this.interest = interest;
 		}
-	
-	public double price(){
-		return price;
-	}
-	
-	
 }
