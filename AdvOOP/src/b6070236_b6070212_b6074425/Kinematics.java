@@ -78,7 +78,7 @@ public class Kinematics extends JFrame {
 			rs = st.executeQuery(query);
 			while(rs.next())
 			{
-				comboBox_1.addItem(rs.getString("formula"));
+				comboBox_1.addItem(rs.getString("Patchara Koksungnoen"));
 			}
 		}catch(Exception e2){
 			e2.printStackTrace();
