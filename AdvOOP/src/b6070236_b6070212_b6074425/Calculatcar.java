@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 
@@ -28,6 +29,7 @@ public class  Calculatcar extends JFrame {
 	private JPanel contentPane;
 	protected double month,price,pay,interest;
 	private JComboBox comboBox;
+	private JComboBox comboBox_1;
 	
 	Statement st;
 	Connection con = null;
@@ -50,21 +52,37 @@ public class  Calculatcar extends JFrame {
 	});
 	}
 	
-	public void fileCombobox(){
-		try{
-			Class.forName("com.mysql.jdbc.Driver");
-			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
-			String query = "select * from datamotorcycle";
-			st = con.createStatement();
-			rs = st.executeQuery(query);
-			while(rs.next())
-			{
-				comboBox.addItem(rs.getString("Brand"));
-			}
-		}catch(Exception e2){
-			e2.printStackTrace();
-		}
-	}
+//	public void fileCombobox(){
+//		try{
+//			Class.forName("com.mysql.jdbc.Driver");
+//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+//			String query = "select * from datamotorcycle";
+//			st = con.createStatement();
+//			rs = st.executeQuery(query);
+//			while(rs.next())
+//			{
+//				comboBox.addItem(rs.getString("Brand"));
+//			}
+//		}catch(Exception e2){
+//			e2.printStackTrace();
+//		}
+//	}
+	
+//	public void fileCombobox2(){
+//		try{
+//			Class.forName("com.mysql.jdbc.Driver");
+//			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+//			String query = "select * from datamotorcycle";
+//			st = con.createStatement();
+//			rs = st.executeQuery(query);
+//			while(rs.next())
+//			{
+//				comboBox_1.addItem(rs.getString("Model"));
+//			}
+//		}catch(Exception e2){
+//			e2.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Create the frame.
@@ -85,11 +103,11 @@ public class  Calculatcar extends JFrame {
 		JLabel label_1 = new JLabel("\u0E22\u0E35\u0E48\u0E2B\u0E49\u0E2D :");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		try{
-		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
-		String query = "select * from datamotorcycle";
-		st = con.createStatement();
-		rs = st.executeQuery(query);
+			Class.forName("com.mysql.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dataadv", "root", "");
+			String query = "select * from datamotorcycle";
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 		}catch(Exception e2){
 			
 		}
@@ -125,9 +143,10 @@ public class  Calculatcar extends JFrame {
 //		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Honda", "Yamaha", "Suzuki", "Ducati", "BMW"}));
 		comboBox.setBounds(80, 82, 167, 30);
 		contentPane.add(comboBox);
+//		fileCombobox();
 		
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"CBR1000RR", "R1M", "GSX-R1000", "Panigale1199", "S1000RR"}));
+//		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"CBR1000RR", "R1M", "GSX-R1000", "Panigale1199", "S1000RR"}));
 		comboBox_1.setBounds(80, 134, 167, 30);
 		contentPane.add(comboBox_1);
 		
@@ -148,21 +167,6 @@ public class  Calculatcar extends JFrame {
 		textPane_2.setBounds(120, 337, 167, 30);
 		contentPane.add(textPane_2);
 		
-		JButton button = new JButton("\u0E04\u0E33\u0E19\u0E27\u0E13");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				month = Double.parseDouble(comboBox_2.getToolTipText());
-				price = Double.parseDouble(textPane.getText());
-				pay = Double.parseDouble(textPane_1.getText());
-				interest = Double.parseDouble(textPane_2.getText());
-				
-				
-				
-			}
-		});
-		button.setBounds(12, 404, 97, 25);
-		contentPane.add(button);
-		
 		JButton btnNewButton = new JButton("\u0E22\u0E49\u0E2D\u0E19\u0E01\u0E25\u0E31\u0E1A");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -180,6 +184,38 @@ public class  Calculatcar extends JFrame {
 		button_2.setBounds(382, 85, 113, 25);
 		contentPane.add(button_2);
 		
-		fileCombobox();
+		JButton button = new JButton("\u0E04\u0E33\u0E19\u0E27\u0E13");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				month = Double.parseDouble(comboBox_2.getSelectedItem().toString());
+				price = Double.parseDouble(textPane.getText());
+				pay = Double.parseDouble(textPane_1.getText());
+				interest = Double.parseDouble(textPane_2.getText());
+				
+				Mom m = new Mom();
+				calculate c1 = new calculate();
+				claculate3 c3 = new claculate3();
+				calculate2 c2 = new calculate2();				
+				c3.mommom(month, price, pay, interest);
+				c3.getFinance();
+				c3.calStar(pay,price);
+				c2.calTotal(c3.getFinance(),c1.getInterest());
+				c2.calInstallment(month);
+
+				
+				int num = 20 ;
+				String sum = String.valueOf(c2.getInstallment());
+ 				
+				JOptionPane.showMessageDialog(null,sum);
+				System.out.print(c3.getFinance() + " 1 ");
+				System.out.print(c1.getInterest() + " 1 ");
+				System.out.print(c2.getInstallment() + " 1 ");
+				
+			}
+		});
+		button.setBounds(12, 404, 97, 25);
+		contentPane.add(button);
+//		fileCombobox2();
+
 	}
 }
